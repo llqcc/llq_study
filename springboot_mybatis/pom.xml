@@ -17,18 +17,31 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
-		<dependency><!-- web依赖 -->
+		<!-- web依赖 开始 -->
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<dependency><!-- mybatis依赖 -->
+		<!-- web依赖 结束 -->
+		<!-- mybatis依赖 开始 -->
+		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
 			<artifactId>mybatis-spring-boot-starter</artifactId>
 		</dependency>
-		<dependency><!-- mysql依赖 -->
+		<!-- mybatis结束 -->
+		<!-- mysql依赖 开始 -->
+		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
+		<!-- mysql依赖 结束 -->
+		<!-- AOP依赖 开始 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
+		<!-- AOP依赖结束 -->
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
