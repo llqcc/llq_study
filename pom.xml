@@ -3,45 +3,254 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.liada.springboot</groupId>
-	<artifactId>springboot_study</artifactId>
+	<groupId>com.liada</groupId>
+	<artifactId>llq_study</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>springboot_studying</name>
+	<name>llq_studying</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		<!-- 工程版本 -->
+		<mvn.myproject.version>0.0.1-SNAPSHOT</mvn.myproject.version>
+		<!-- springboot 版本 -->
 		<mvn.springboot.version>2.1.5.RELEASE</mvn.springboot.version>
+		<!-- org.mybatis.spring.boot依赖版本 -->
 		<mvn.mybatis.version>1.3.2</mvn.mybatis.version>
+		<!-- jedis依赖版本 -->
+		<mvn.jedis.version>2.9.0</mvn.jedis.version>
+		<!-- pagehelper依赖 -->
+		<mvn.pagehelper.version>1.2.3</mvn.pagehelper.version>
+		<!-- fastjson依赖 -->
+		<mvn.fastjson.version>1.2.47</mvn.fastjson.version>
+		<!-- apache common包依赖 -->
+		<mvn.common-logging.version>1.1.1</mvn.common-logging.version>
+		<mvn.common-lang.version>2.6</mvn.common-lang.version>
+		<mvn.common-io.version>2.4</mvn.common-io.version>
+		<mvn.commmon-beanutils.vesrion>1.7.0</mvn.commmon-beanutils.vesrion>
+		<mvn.commons-fileupload>1.3.3</mvn.commons-fileupload>
+		<mvn.commons-collection.version>3.2.1</mvn.commons-collection.version>
+		<!-- lombok依赖 -->
+		<mvn.lombok.version>1.16.18</mvn.lombok.version>
+		<!-- net.sf.ezmorph依赖 -->
+		<mvn.ezmorph.version>1.0.6</mvn.ezmorph.version>
+		<!-- jxls-core依赖 -->
+		<mvn.jxls-core.version>1.0.6</mvn.jxls-core.version>
+		<!-- xstream依赖 -->
+		<mvn.xstream.version>1.4.7</mvn.xstream.version>
+		<!-- xmlpullversion -->
+		<mvn.xmlpull.version>1.1.3.1</mvn.xmlpull.version>
+		<!-- commons-lang3依赖 -->
+		<mvn.commons-lang3.version>3.5</mvn.commons-lang3.version>
+		<!-- 阿里云短信接口 -->
+		<mvn.aliyun.sdk.dysmsapi>1.0.0</mvn.aliyun.sdk.dysmsapi>
+		<mvn.aliyun.sdk.core>3.2.8</mvn.aliyun.sdk.core>
+		<mvn.pdfbox.version>1.8.13</mvn.pdfbox.version>
+		<!-- 阿里巴巴连接池druid依赖版本 -->
+		<mvn.druid.version>1.1.0</mvn.druid.version>
+		<mvn.springboot-druid.version>1.1.9</mvn.springboot-druid.version>
+		<!-- poi依赖 -->
+		<mvn.poi.version>3.9</mvn.poi.version>
+		
 	</properties>
 
 	<dependencyManagement>
 		<dependencies>
+			<!-- Override Spring Data release train provided by Spring Boot -->
 			<dependency>
-				<!-- springboot依赖 -->
+				<groupId>org.springframework.data</groupId>
+				<artifactId>spring-data-releasetrain</artifactId>
+				<version>Fowler-SR2</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<!-- Spring-boot版本依赖,不用parent方式引用，这是为了子模块中还有子模块的情况 -->
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-dependencies</artifactId>
 				<version>${mvn.springboot.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-
-			<dependency><!-- mybatis依赖 -->
+			<!--mybatis -->
+			<dependency>
 				<groupId>org.mybatis.spring.boot</groupId>
 				<artifactId>mybatis-spring-boot-starter</artifactId>
 				<version>${mvn.mybatis.version}</version>
 			</dependency>
-
-
+			<!-- mybatis依赖结束 -->
+			<!--pagehelper 分页插件依赖 -->
+			<dependency>
+				<groupId>com.github.pagehelper</groupId>
+				<artifactId>pagehelper-spring-boot-starter</artifactId>
+				<version>${mvn.pagehelper.version}</version>
+			</dependency>
+			<!-- 分页插件依赖结束 -->
+			<!--阿里巴巴druid连接池依赖 -->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid</artifactId>
+				<version>${mvn.druid.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid-spring-boot-starter</artifactId>
+				<version>${mvn.springboot-druid.version}</version>
+			</dependency>
+			<!--阿里巴巴druid连接池依赖结束 -->
+			<!-- fastjson依赖 -->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>${mvn.fastjson.version}</version>
+			</dependency>
+			<!-- fastjson依赖结束 -->
+			<!-- net.sf.jxls依赖开始 -->
+			<dependency>
+				<groupId>net.sf.jxls</groupId>
+				<artifactId>jxls-core</artifactId>
+				<version>${mvn.jxls-core.version}</version>
+			</dependency>
+			<!-- net.sf.jxls依赖结束 -->
+			<!--commons-collections -->
+			<dependency>
+				<groupId>commons-collections</groupId>
+				<artifactId>commons-collections</artifactId>
+				<version>${mvn.commons-collection.version}</version>
+			</dependency>
+			<!-- commons-logging -->
+			<dependency>
+				<groupId>commons-logging</groupId>
+				<artifactId>commons-logging</artifactId>
+				<version>${mvn.common-logging.version}</version>
+			</dependency>
+			<!-- commons-lang -->
+			<dependency>
+				<groupId>commons-lang</groupId>
+				<artifactId>commons-lang</artifactId>
+				<version>${mvn.common-lang.version}</version>
+			</dependency>
+			<!-- commons-beanutils -->
+			<dependency>
+				<groupId>commons-beanutils</groupId>
+				<artifactId>commons-beanutils</artifactId>
+				<version>${mvn.commmon-beanutils.vesrion}</version>
+			</dependency>
+			<!-- common-io -->
+			<dependency>
+				<groupId>commons-io</groupId>
+				<artifactId>commons-io</artifactId>
+				<version>${mvn.common-io.version}</version>
+			</dependency>
+			<!-- ezmorph -->
+			<dependency>
+				<groupId>net.sf.ezmorph</groupId>
+				<artifactId>ezmorph</artifactId>
+				<version>${mvn.ezmorph.version}</version>
+			</dependency>
+			<!-- 文件上传 -->
+			<dependency>
+				<groupId>commons-fileupload</groupId>
+				<artifactId>commons-fileupload</artifactId>
+				<version>${mvn.commons-fileupload}</version>
+			</dependency>
+			<!-- 文件上传 -->
+			<!-- xstream依赖 -->
+			<dependency>
+				<groupId>com.thoughtworks.xstream</groupId>
+				<artifactId>xstream</artifactId>
+				<version>${mvn.xstream.version}</version>
+			</dependency>
+			<!-- xstream依赖结束 -->
+			<!-- https://mvnrepository.com/artifact/xmlpull/xmlpull -->
+			<dependency>
+				<groupId>xmlpull</groupId>
+				<artifactId>xmlpull</artifactId>
+				<version>${mvn.xmlpull.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>${mvn.commons-lang3.version}</version>
+			</dependency>
+			<!-- poi依赖开始 -->
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi</artifactId>
+				<version>${mvn.poi.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi-examples</artifactId>
+				<version>${mvn.poi.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi-ooxml-schemas</artifactId>
+				<version>${mvn.poi.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi-scratchpad</artifactId>
+				<version>${mvn.poi.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi-ooxml</artifactId>
+				<version>${mvn.poi.version}</version>
+			</dependency>
+			<!-- poi依赖结束 -->
+			<!-- jedis 依赖 -->
+			<dependency>
+				<groupId>redis.clients</groupId>
+				<artifactId>jedis</artifactId>
+				<version>${mvn.jedis.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>redis.clients</groupId>
+						<artifactId>jedis</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<!-- jedis依赖结束 -->
+			<!-- 阿里云短信jar依赖 开始 -->
+			<dependency>
+				<groupId>com.aliyun</groupId>
+				<artifactId>aliyun-java-sdk-core</artifactId>
+				<version>${mvn.aliyun.sdk.core}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aliyun</groupId>
+				<artifactId>aliyun-java-sdk-dysmsapi</artifactId>
+				<version>${mvn.aliyun.sdk.dysmsapi}</version>
+			</dependency>
+			<!-- 阿里云短信jar依赖结束 -->
+			<!--日志和get set相关 日志和get set相关 -->
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>${mvn.lombok.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<!-- test测试 -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-test</artifactId>
+				<version>2.1.3.RELEASE</version>
+				<scope>test</scope>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
 	<modules>
 		<module>springboot_mybatis</module>
 		<module>springboot_study_1.5</module>
+		<module>llq-template</module>
+		<module>llq_springcloud</module>
 	</modules>
 </project>
