@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.liada.microcloud.dao.IDeptDao">
+	<select id="findAll" resultType="com.liada.api.Dept">
+		select deptno,dname from dept;
+	</select>
+	<select id="findById" parameterType="Long" resultType="com.liada.api.Dept">
+		select
+		deptno,dname from dept where deptno=#{id};
+	</select>
+
+	<insert id="doCreate">
+		insert into dept(dname) values(#{dname});
+	</insert>
+</mapper>
