@@ -13,16 +13,14 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<api.version>0.0.1-SNAPSHOT</api.version>
-		<security.version>0.0.1-SNAPSHOT</security.version>
-		<service.version>0.0.1-SNAPSHOT</service.version>
 		<maven.compiler.version>1.8</maven.compiler.version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
 				<groupId>com.liada</groupId>
-				<artifactId>microcloud-service</artifactId>
-				<version>${service.version}</version>
+				<artifactId>microcloud-consumer-service</artifactId>
+				<version>${api.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.liada</groupId>
@@ -32,7 +30,7 @@
 			<dependency>
 				<groupId>com.liada</groupId>
 				<artifactId>microcloud-security</artifactId>
-				<version>${security.version}</version>
+				<version>${api.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
@@ -90,7 +88,6 @@
 				<configuration>
 					<source>${maven.compiler.version}</source><!-- 源代码使用的开发版本 -->
 					<target>${maven.compiler.version}</target><!-- 需要生成的目标class文件的编译版本 -->
-					<encode>${project.build.sourceEncoding}</encode>
 				</configuration>
 			</plugin>
 
@@ -113,6 +110,6 @@
 		<module>microcloud-api</module>
 		<module>microcloud-security</module>
 		<module>microcloud-server</module>
-		<module>microcloud-service</module>
+		<module>microcloud-consumer-service</module>
 	</modules>
 </project>

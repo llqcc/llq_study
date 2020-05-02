@@ -42,7 +42,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.liada</groupId>
-			<artifactId>microcloud-service</artifactId>
+			<artifactId>microcloud-consumer-service</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
