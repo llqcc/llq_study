@@ -111,5 +111,8 @@
 		<module>microcloud-security</module>
 		<module>microcloud-server</module>
 		<module>microcloud-consumer-service</module>
+		
+		<module>microcloud-provider-hystrix-8001</module>
+		<module>microcloud-consumer-hystrix</module>
 	</modules>
 </project>
