@@ -99,9 +99,11 @@
 		<module>microcloud-provider-dept-8001</module>
 		<module>microcloud-provider-dept-8002</module>
 		<module>microcloud-provider-dept-8003</module>
+		<module>microcloud-provider-hystrix-8001</module>
 		
 		<module>microcloud-consumer-80</module>
 		<module>microcloud-consumer-feign</module>
+		<module>microcloud-consumer-hystrix</module>
 
 		<module>microcloud-eureka-7001</module>
 		<module>microcloud-eureka-7002</module>
@@ -111,8 +113,10 @@
 		<module>microcloud-security</module>
 		<module>microcloud-server</module>
 		<module>microcloud-consumer-service</module>
+		<module>microcloud-consumer-hystrix-dashboard</module>
 		
-		<module>microcloud-provider-hystrix-8001</module>
-		<module>microcloud-consumer-hystrix</module>
+		<module>microcloud-zuul-gateway-9501</module>
+		
+		
 	</modules>
 </project>

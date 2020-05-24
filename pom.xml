@@ -252,5 +252,6 @@
 		<module>springboot_study_1.5</module>
 		<module>llq-template</module>
 		<module>llq_springcloud</module>
-	</modules>
+		<module>liada-rabbitmq</module>
+    </modules>
 </project>
