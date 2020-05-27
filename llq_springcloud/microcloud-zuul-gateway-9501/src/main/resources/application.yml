@@ -1,0 +1,37 @@
+server:
+   port: 9501
+
+spring:
+   application:
+      name: microcloud-zuul-gateway
+zuul:
+   AuthorizedRequestFilter:
+      pre:
+         disable: false
+   prefix: /liada-proxy
+   ignored-services:
+      "*"
+   routes:
+      microcloud-provider-dept: /dept-proxy/**
+
+security:
+   basic:
+      enabled: true
+   user:
+      name: zdmin
+      password: zdmin
+
+eureka:
+   client: # 客户端进行Eureka注册的配置
+      service-url:
+         defaultZone: http://edmin:123@eureka-7001.com:7001/eureka,http://edmin:123@eureka-7002.com:7002/eureka,http://edmin:123@eureka-7003.com:7003/eureka
+   instance:
+      instance-id: myzuul-9501.com #信息列表主机名称
+      prefer-ip-address: true #访问的路径变为ip地址
+      lease-renewal-interval-in-seconds: 2 # 设置心跳的时间间隔（默认是30秒）
+      lease-expiration-duration-in-seconds: 5 # 如果现在超过了5秒的间隔（默认是90秒）
+info:
+   app.name: llq-microcloud
+   company.name: www.llq.cn
+   build.artifactId: $project.artifactId$
+   build.version: $project.version$
