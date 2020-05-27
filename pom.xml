@@ -253,5 +253,6 @@
 		<module>llq-template</module>
 		<module>llq_springcloud</module>
 		<module>liada-rabbitmq</module>
-    </modules>
+		<module>llq-rabbitmq</module>
+	</modules>
 </project>
