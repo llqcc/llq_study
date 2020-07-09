@@ -20,9 +20,9 @@ public class Consumer {
         // 从连接中创建通道(相当于mysql获取连接后还得获取到statement才能操作数据库一样的道理)
         Channel channel = connection.createChannel();
 
-        String exchangeName = "test_return_exchange";
-        String routingKey = "return.#";
-        String queueName = "test_return_queue";
+        String exchangeName = "test_topic";
+        String routingKey = "user.#";
+        String queueName = "test_topic_queue";
         // 声明交换机和队列
         channel.exchangeDeclare(exchangeName, "topic", true, false, null);
         channel.queueDeclare(queueName, false, false, false, null);

@@ -21,12 +21,44 @@ public class Producer {
         Channel channel = connection.createChannel();
 
         //指定消息投递模式：消息的确认消息
-        //channel.confirmSelect();
+        channel.confirmSelect();
 
         // 声明exchangeName
-        String exchangeName = "test_return_exchange";
-        String routingKey = "return.save";
+        String exchangeName = "test.topic";
+        String routingKey = "user.save";
         String routingKeyError = "error.save";
+
+        // 添加一个确认监听
+        channel.addConfirmListener(new ConfirmListener() {
+            // 消息失败发送失败会进入到这个方法
+            /**
+             * 业务处理的时候这里就可以处理一些失败的消息后的逻辑,如：日志记录，错误跟踪等
+             *{ deliveryTag:这条消息的唯一标签
+             *  multiple :是否批量
+             *  }
+             */
+
+
+            // 消息发送成功后会进入到这个方法
+            @Override
+            public void handleAck(long deliveryTag, boolean multiple) throws IOException {
+                // TODO Auto-generated method stub
+                System.err.println("------- ack -------");
+            }
+
+            /**
+             * 在一下这些情况下会走handleNack方法：
+             * 磁盘不够用，队列满了等等。
+             *
+             * 该模式不能确认消息的100%可靠性传递，有时候可能会出现网络中断导致消息消息的情况，
+             * 这时候需要采用一些定时任务去抓取一些消息重新进行投递。
+             */
+            @Override
+            public void handleNack(long deliveryTag, boolean multiple) throws IOException {
+                // TODO Auto-generated method stub
+                System.err.println("------no ack-------");
+            }
+        });
 
         // 发送一条消息
         /**
@@ -54,7 +86,7 @@ public class Producer {
         // 发送成功路由的消息
 //        channel.basicPublish(exchangeName, routingKey, true, null, "Hello return msg".getBytes());
         //发送失败路由的消息
-        channel.basicPublish(exchangeName, routingKeyError, true, null, "Hello return msg".getBytes());
+        channel.basicPublish(exchangeName, routingKey, true, null, "Hello return msg".getBytes());
         /**
          * Mandatory为false不会进行监听
          */

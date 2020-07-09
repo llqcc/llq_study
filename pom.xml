@@ -254,5 +254,7 @@
 		<module>llq_springcloud</module>
 		<module>liada-rabbitmq</module>
 		<module>llq-rabbitmq</module>
-	</modules>
+		<module>springboot_mongodb</module>
+        <module>mythread</module>
+    </modules>
 </project>
